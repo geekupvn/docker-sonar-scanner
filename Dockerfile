@@ -24,7 +24,7 @@ RUN apk add --no-cache wget && \
     apk del wget
 
 # Create /data directory and set as mount volume & workir
-RUN mkir /data
+RUN mkdir /data
 VOLUME /data
 WORKDIR /data
 
