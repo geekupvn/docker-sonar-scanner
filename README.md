@@ -7,7 +7,7 @@ a containerized solution for sonar scanner.
        -v ./src:/data
        -e SONAR_USERNAME="your_sonar_user" \
        -e SONAR_PASSWORD="your_sonar_password" \
-       ngtrieuvi92/sonar-scanner 
+       geekup/sonar-scanner 
 ```
 
 ## LICENSE: GPLv3
