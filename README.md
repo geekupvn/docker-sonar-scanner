@@ -1,5 +1,5 @@
 # docker-sonar-scanner
-a containerized solution for sonar scanner.
+Sonar runner with custom UID to deal with error permssion
 
 ## Usage:
 ```shell
@@ -7,6 +7,7 @@ a containerized solution for sonar scanner.
        -v ./src:/data
        -e SONAR_USERNAME="your_sonar_user" \
        -e SONAR_PASSWORD="your_sonar_password" \
+       -e LOCAL_USER_ID=$(id -u $USER)
        geekup/sonar-scanner 
 ```
 
