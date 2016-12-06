@@ -51,4 +51,4 @@ ADD entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
 
 ENTRYPOINT ["/usr/bin/entrypoint.sh"]
-CMD ["sonar-scanner","-Dsonar.login=$SONAR_USERNAME","-Dsonar.password=$SONAR_PASSWORD"]
+CMD sonar-scanner -Dsonar.login=$SONAR_USERNAME -Dsonar.password=$SONAR_PASSWORD
