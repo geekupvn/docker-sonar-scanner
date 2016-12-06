@@ -1,5 +1,5 @@
 # docker-sonar-scanner
-Sonar runner with custom UID to deal with error permssion
+Sonar runner with custom UID to deal with error permssion 
 
 ## Usage:
 ```shell
@@ -8,7 +8,7 @@ Sonar runner with custom UID to deal with error permssion
        -e SONAR_USERNAME="your_sonar_user" \
        -e SONAR_PASSWORD="your_sonar_password" \
        -e LOCAL_USER_ID=$(id -u $USER)
-       geekup/sonar-scanner 
+       geekup/sonar-scanner:latest 
 ```
 
 ## LICENSE: GPLv3
