@@ -6,6 +6,7 @@
 #       -v ./src:/data
 #       -e SONAR_USERNAME="$SONAR_USERNAME" \
 #       -e SONAR_PASSWORD="$SONAR_PASSWORD" \
+#       -e LOCAL_USER_ID=$(id -u $USER)
 #       ngtrieuvi92/sonar-scanner 
 #
 #-------------------------------------------------------------------------------
