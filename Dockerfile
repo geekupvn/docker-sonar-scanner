@@ -32,7 +32,7 @@ RUN set -x \
     && apk del .gosu-deps
     
 # Set scanner version
-ENV SONAR_SCANNER_VERSION 2.7
+ENV SONAR_SCANNER_VERSION 2.8
 
 # Install sonar scanner
 RUN apk add --no-cache wget && \
