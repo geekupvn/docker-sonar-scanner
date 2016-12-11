@@ -47,9 +47,15 @@ RUN apk add --update python python-dev py-pip build-base bash curl
 RUN pip install lizard
 
 # Set tailor version
-ENV TAILOR_RELEASE_ARCHIVE https://github.com/sleekbyte/tailor/releases/download/v0.11.1/tailor-0.11.1.tar
+ENV TAILOR_VERSION 0.11.1
 
 # Install taylor
+RUN apk add --no-cache wget && \
+    wget https://github.com/sleekbyte/tailor/releases/download/v${TAILOR_VERSION}/tailor-{TAILOR_VERSION}.zip && \
+    unzip tailor-{TAILOR_VERSION}.zip && \
+    cd /usr/bin && ln -s /tailor-{TAILOR_VERSION}.zip/bin/tailor tailor && \
+    apk del wget
+
 RUN apk add --no-cache wget && \
     wget ${TAILOR_RELEASE_ARCHIVE} -O /tmp/tailor.tar  && \
     tar -xvf /tmp/tailor.tar && \
