@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 ## INSTALLATION: script to copy in your Xcode project in the same directory as the .xcodeproj file
 ## USAGE: ./run-sonar-swift.sh
 ## DEBUG: ./run-sonar-swift.sh -v
