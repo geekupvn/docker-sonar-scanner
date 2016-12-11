@@ -43,11 +43,13 @@ RUN apk add --no-cache wget && \
     apk del wget
 
 #install Lizard and Tailor for https://github.com/Backelite/sonar-swift
-RUN apk add --update python python-dev py-pip build-base bash
+RUN apk add --update python python-dev py-pip build-base bash curl
 RUN pip install lizard
 RUN curl -fsSL https://tailor.sh/install.sh | sh
 ADD run-sonar-swift.sh /usr/bin/run-sonar-swift
 RUN chmod +x /usr/bin/run-sonar-swift
+
+RUN apk del curl
 
 # Create /data directory and set as mount volume & workir
 RUN mkdir /data
