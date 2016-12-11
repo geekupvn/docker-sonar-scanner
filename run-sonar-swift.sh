@@ -368,12 +368,12 @@ else
 fi
 
 # SonarQube
-echo -n 'Running SonarQube using SonarQube Runner'
-if hash /dev/stdout sonar-runner 2>/dev/null; then
-	runCommand /dev/stdout sonar-runner 
-else
-	runCommand /dev/stdout sonar-scanner
-fi
+#echo -n 'Running SonarQube using SonarQube Runner'
+#if hash /dev/stdout sonar-runner 2>/dev/null; then
+#   runCommand /dev/stdout sonar-runner 
+#else
+#	runCommand /dev/stdout sonar-scanner
+#fi
 
 # Kill progress indicator
 stopProgress
