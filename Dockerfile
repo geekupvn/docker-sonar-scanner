@@ -45,7 +45,12 @@ RUN apk add --no-cache wget && \
 #install Lizard and Tailor for https://github.com/Backelite/sonar-swift
 RUN apk add --update python python-dev py-pip build-base bash curl
 RUN pip install lizard
-RUN curl -fsSL https://tailor.sh/install.sh | sh
+RUN apk add --no-cache wget && \
+    wget ${TAILOR_RELEASE_ARCHIVE} -O /tmp/tailor.tar \
+    tar -xvf /tmp/tailor.tar \
+    cd /usr/bin && ln -s $PWD/tailor/bin/tailor tailor && \
+    apk del wget
+
 ADD run-sonar-swift.sh /usr/bin/run-sonar-swift
 RUN chmod +x /usr/bin/run-sonar-swift
 
