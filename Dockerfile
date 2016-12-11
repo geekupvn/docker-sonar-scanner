@@ -46,8 +46,8 @@ RUN apk add --no-cache wget && \
 RUN apk add --update python python-dev py-pip build-base
 RUN pip install lizard
 RUN curl -fsSL https://tailor.sh/install.sh | sh
-ADD run-sonar-swift.sh /usr/bin/run-sonar-swift.sh
-RUN chmod +x /usr/bin/run-sonar-swift.sh
+ADD run-sonar-swift.sh /usr/bin/run-sonar-swift
+RUN chmod +x /usr/bin/run-sonar-swift
 
 # Create /data directory and set as mount volume & workir
 RUN mkdir /data
@@ -59,4 +59,4 @@ ADD entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
 
 ENTRYPOINT ["/usr/bin/entrypoint.sh"]
-CMD /usr/bin/run-sonar-swift.sh && sonar-scanner -Dsonar.login=$SONAR_USERNAME -Dsonar.password=$SONAR_PASSWORD
+CMD run-sonar-swift && sonar-scanner -Dsonar.login=$SONAR_USERNAME -Dsonar.password=$SONAR_PASSWORD
