@@ -53,7 +53,7 @@ ENV TAILOR_VERSION 0.11.1
 RUN apk add --no-cache wget && \
     wget https://github.com/sleekbyte/tailor/releases/download/v${TAILOR_VERSION}/tailor-{TAILOR_VERSION}.zip && \
     unzip tailor-{TAILOR_VERSION}.zip && \
-    cd /usr/bin && ln -s /tailor-{TAILOR_VERSION}.zip/bin/tailor tailor && \
+    cd /usr/bin && ln -s /tailor-{TAILOR_VERSION}/bin/tailor tailor && \
     apk del wget
 
 RUN apk add --no-cache wget && \
