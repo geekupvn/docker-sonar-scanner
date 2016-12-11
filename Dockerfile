@@ -49,8 +49,6 @@ RUN curl -fsSL https://tailor.sh/install.sh | sh
 ADD run-sonar-swift.sh /usr/bin/run-sonar-swift.sh
 RUN chmod +x /usr/bin/run-sonar-swift.sh
 
-
-
 # Create /data directory and set as mount volume & workir
 RUN mkdir /data
 VOLUME /data
@@ -61,4 +59,4 @@ ADD entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
 
 ENTRYPOINT ["/usr/bin/entrypoint.sh"]
-CMD run-sonar-swift.sh && sonar-scanner -Dsonar.login=$SONAR_USERNAME -Dsonar.password=$SONAR_PASSWORD
+CMD /usr/bin/run-sonar-swift.sh && sonar-scanner -Dsonar.login=$SONAR_USERNAME -Dsonar.password=$SONAR_PASSWORD
