@@ -12,7 +12,7 @@
 #-------------------------------------------------------------------------------
 
 FROM java:alpine
-MAINTAINER vi.nt <vi.nt@geekup.vn>
+MAINTAINER vi.nt <vi.nt@geekup.vn> , thinh.vx <thinh.vx@geekup.vn>
 
 # Install gosu
 ENV GOSU_VERSION 1.9
@@ -41,6 +41,14 @@ RUN apk add --no-cache wget && \
     unzip sonar-scanner-${SONAR_SCANNER_VERSION} && \
     cd /usr/bin && ln -s /sonar-scanner-${SONAR_SCANNER_VERSION}/bin/sonar-scanner sonar-scanner && \
     apk del wget
+
+#install Lizard and Tailor for https://github.com/Backelite/sonar-swift
+RUN pip install lizard
+RUN curl -fsSL https://tailor.sh/install.sh | sh
+ADD run-sonar-swift.sh /usr/bin/run-sonar-swift.sh
+RUN chmod +x /usr/bin/run-sonar-swift.sh
+
+
 
 # Create /data directory and set as mount volume & workir
 RUN mkdir /data
