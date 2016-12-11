@@ -51,8 +51,8 @@ ENV TAILOR_RELEASE_ARCHIVE https://github.com/sleekbyte/tailor/releases/download
 
 # Install taylor
 RUN apk add --no-cache wget && \
-    wget ${TAILOR_RELEASE_ARCHIVE} -O /tmp/tailor.tar \
-    tar -xvf /tmp/tailor.tar \
+    wget ${TAILOR_RELEASE_ARCHIVE} -O /tmp/tailor.tar  && \
+    tar -xvf /tmp/tailor.tar && \
     cd /usr/bin && ln -s $PWD/tailor/bin/tailor tailor && \
     apk del wget
 
