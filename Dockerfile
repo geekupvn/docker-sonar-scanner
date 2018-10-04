@@ -33,6 +33,9 @@ RUN set -x \
     && gosu nobody true \
     && apk del .gosu-deps
 
+RUN npm i -g typescript && \
+  npm cache clean
+
 # Set scanner version
 ENV SONAR_SCANNER_VERSION 2.8
 
