@@ -31,7 +31,9 @@ RUN set -x \
     && chmod +x /usr/local/bin/gosu \
     && gosu nobody true \
     && apk del .gosu-deps
-    
+
+RUN apk add --update nodejs nodejs-npm
+
 # Set scanner version
 ENV SONAR_SCANNER_VERSION 2.8
 
