@@ -32,7 +32,7 @@ RUN set -x \
     && gosu nobody true \
     && apk del .gosu-deps
 
-RUN apk add --update nodejs nodejs-npm
+RUN apk add --update nodejs
 
 # Set scanner version
 ENV SONAR_SCANNER_VERSION 2.8
