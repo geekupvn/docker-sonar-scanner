@@ -18,6 +18,7 @@ MAINTAINER vi.nt <vi.nt@geekup.vn>
 ENV GOSU_VERSION 1.9
 RUN set -x \
     && apk add --no-cache --virtual .gosu-deps \
+        nodejs \
         dpkg \
         gnupg \
         openssl \
@@ -31,8 +32,6 @@ RUN set -x \
     && chmod +x /usr/local/bin/gosu \
     && gosu nobody true \
     && apk del .gosu-deps
-
-RUN apk add --update nodejs
 
 # Set scanner version
 ENV SONAR_SCANNER_VERSION 2.8
