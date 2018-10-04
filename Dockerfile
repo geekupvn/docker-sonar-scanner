@@ -18,7 +18,6 @@ MAINTAINER vi.nt <vi.nt@geekup.vn>
 ENV GOSU_VERSION 1.9
 RUN set -x \
     && apk add --no-cache --virtual .gosu-deps \
-        nodejs \
         dpkg \
         gnupg \
         openssl \
@@ -33,8 +32,9 @@ RUN set -x \
     && gosu nobody true \
     && apk del .gosu-deps
 
-RUN npm i -g typescript && \
-  npm cache clean
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash \
+    && nvm install 8 \
+    && nvm alias default 8
 
 # Set scanner version
 ENV SONAR_SCANNER_VERSION 2.8
